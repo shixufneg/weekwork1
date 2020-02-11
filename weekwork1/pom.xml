@@ -46,23 +46,24 @@
       <version>4.3.19.RELEASE</version>
     </dependency>
 
-    <!--DBCP连接池-->
+    <dependency>
+      <groupId>com.mchange</groupId>
+      <artifactId>c3p0</artifactId>
+      <version>0.9.5.2</version>
+    </dependency>
 
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <version>4.3.19.RELEASE</version>
+    </dependency>
 
-    <!--&lt;!&ndash;dbutils架包&ndash;&gt;-->
-    <!--&lt;!&ndash; https://mvnrepository.com/artifact/commons-dbutils/commons-dbutils &ndash;&gt;-->
-    <!--<dependency>-->
-      <!--<groupId>commons-dbutils</groupId>-->
-      <!--<artifactId>commons-dbutils</artifactId>-->
-      <!--<version>1.7</version>-->
-    <!--</dependency>-->
-    <!--&lt;!&ndash;C3P0架包&ndash;&gt;-->
-    <!--&lt;!&ndash; https://mvnrepository.com/artifact/com.mchange/c3p0 &ndash;&gt;-->
-    <!--<dependency>-->
-      <!--<groupId>com.mchange</groupId>-->
-      <!--<artifactId>c3p0</artifactId>-->
-      <!--<version>0.9.5.2</version>-->
-    <!--</dependency>-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>4.3.19.RELEASE</version>
+    </dependency>
+
   </dependencies>
 
   <build>

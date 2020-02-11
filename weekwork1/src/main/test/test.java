@@ -1,3 +1,7 @@
+import com.itdr.controller.IndexController;
+import com.itdr.dao.IndexDao;
+import com.itdr.pojo.Users;
+import com.itdr.service.impl.IndexServiceImpl;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -9,43 +13,30 @@ import java.util.Map;
 
 public class test {
     @Test
-    public void test(){
-        DriverManagerDataSource dm = new DriverManagerDataSource();
-        dm.setDriverClassName("com.mysql.jdbc.Driver");
-        dm.setUrl("jdbc:mysql://localhost:3306/javaweb");
-        dm.setUsername("root");
-        dm.setPassword("sxf1314...");
-        //JDBC模板
-        JdbcTemplate jd = new JdbcTemplate(dm);
-
-        //测试
-        String sql = "select * from users where username='sxf'";
-        String sql1 = "insert into users values(null,'qwwe',123321,000,1,1,null,null)";
-        List<Map<String, Object>> maps = jd.queryForList(sql);
-        int update = jd.update(sql1);
-        System.out.println("插入："+update);
-        for (Map<String, Object> map : maps) {
-            for (String s:map.keySet()) {
-                System.out.println(map.get(s));
-            }
-        }
+    public void test05(){
+        ApplicationContext ac = new ClassPathXmlApplicationContext("spring.xml");
+        IndexController indexController = ac.getBean(IndexController.class);
+        String zz = indexController.zz("sxf", "sxf2", 10);
+        System.out.println(zz);
     }
     @Test
-    public void test2(){
-        ApplicationContext ac = new ClassPathXmlApplicationContext("Spring.xml");
-        //JDBC模板
-        JdbcTemplate jd = ac.getBean(JdbcTemplate.class);
+    public void test06(){
+        ApplicationContext ac = new ClassPathXmlApplicationContext("spring.xml");
+        IndexController indexController = ac.getBean(IndexController.class);
+        indexController.zz2("sxf", "sxf2", 10);
 
-        //测试
-        String sql = "select * from users where username='sxf'";
-        String sql1 = "insert into users values(null,'qwwe',123321,000,1,1,null,null)";
-        List<Map<String, Object>> maps = jd.queryForList(sql);
-//        int update = jd.update(sql1);
-//        System.out.println("插入："+update);
-        for (Map<String, Object> map : maps) {
-            for (String s:map.keySet()) {
-                System.out.println(map.get(s));
-            }
-        }
+    }
+    @Test
+    public void test07(){
+        ApplicationContext ac = new ClassPathXmlApplicationContext("spring.xml");
+        Users u = (Users) ac.getBean("users");
+        System.out.println(u);
+
+//        u.setUsername("sxf");
+//        Users u2 = (Users) ac.getBean("users");
+//        System.out.println(u2);
+    }
+    @Test
+    public void test08(){
     }
 }
